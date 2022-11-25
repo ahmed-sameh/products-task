@@ -1,0 +1,99 @@
+nav {
+  padding: var(--conatiner-padding);
+  padding-top: 15px;
+  padding-bottom: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #424242;
+}
+
+.auth-nav,
+.home-links {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  position: relative;
+}
+
+.home-links {
+  gap: 80px;
+}
+
+.logo {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.logo img {
+  width: 32px;
+}
+
+.brand-name {
+  font-size: 16px;
+}
+
+.nav-item {
+  color: #667085;
+  cursor: pointer;
+  text-transform: capitalize;
+  transition: var(--main-transition);
+}
+
+.nav-item:hover {
+  color: rgb(var(--main-color));
+}
+
+.search-form {
+  position: relative;
+}
+
+#search-field {
+  height: 32px;
+  width: 319px;
+  border-radius: 8px;
+  border: 0.5px solid #424242;
+  padding-left: 35px;
+}
+
+.sub-btn {
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-38%);
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.account-dropdown {
+  position: absolute;
+  right: 0;
+  top: 130%;
+  padding: 10px 0;
+  min-width: 130px;
+  z-index: 999;
+  background-color: #fff;
+  border: 1px solid rgb(var(--main-color));
+  opacity: 0;
+  visibility: hidden;
+  margin-top: 20px;
+  transition: all 0.25s ease 0s;
+  text-align: center;
+}
+
+.account-dropdown li {
+  padding: 5px;
+  transition: var(--main-transition);
+  cursor: pointer;
+}
+
+.account-dropdown li:hover {
+  background: #f4f4ff;
+}
+.account-dropdown.visible {
+  opacity: 1;
+  visibility: visible;
+  margin-top: 12px;
+}

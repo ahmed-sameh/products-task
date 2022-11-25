@@ -1,0 +1,106 @@
+/* login form styles */
+.form-container {
+  max-width: 350px;
+  margin: 10vh auto 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+
+.title {
+  font-weight: 600;
+  font-size: 30px;
+  line-height: 38px;
+  text-align: center;
+}
+
+.sub-title {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  color: #667085;
+  text-align: center;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-top: 30px;
+  width: 100%;
+}
+
+.login-form .input-item {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.login-form .input-item label {
+  color: #445065;
+  font-weight: 300;
+  text-transform: capitalize;
+  font-size: 14px;
+}
+
+.login-form .input-item.password-field label {
+  display: flex;
+  justify-content: space-between;
+}
+
+.login-form .input-item.password-field label .forget-link {
+  color: #a6a6a6;
+  transition: var(--main-transition);
+}
+
+.login-form .input-item.password-field label .forget-link:hover {
+  color: #0089e5;
+}
+
+.login-form .input-field {
+  padding: 8px 16px;
+  border: 1px solid #dcdee3;
+  border-radius: 4px;
+  color: #445065;
+  font-weight: 300;
+  font-size: 14px;
+}
+
+.login-form .input-field.ng-dirty.ng-invalid.ng-touched {
+  border: 1px solid #f24220;
+  box-shadow: none;
+}
+
+.login-form .input-field:focus {
+  border: 1px solid #09f;
+  box-shadow: inset 0 0 4px 0 #09f;
+}
+
+.login-form .sub-btn {
+  border: none;
+  background-color: #0089e5;
+  color: #fff;
+  height: 40px;
+  font-size: 0.875rem;
+  line-height: 38px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 600;
+  text-transform: capitalize;
+  transition: var(--main-transition);
+}
+
+.login-form .sub-btn:hover {
+  background-color: #09f;
+}
+
+.login-form .sub-btn[disabled] {
+  background-color: #ccc;
+}
+
+.hint-msg {
+  color: red;
+  font-size: 14px;
+}

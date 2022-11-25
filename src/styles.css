@@ -1,1 +1,85 @@
 /* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800;900&display=swap');
+
+
+/* global styles and  varibles */
+:root {
+  /*light blue color*/
+  --main-color: 86, 217, 217;
+
+  /*dark blue color*/
+  --secondary-color: 29, 41, 57
+
+  /* transtion duration */
+  --main-transtion: 0.3s;
+
+  /*main-padding of sections*/
+  --main-sec-padding: 40px 0px;
+
+  /*  border radious */
+  --main-border-radious: 6px;
+
+/* container */
+    --conatiner-padding: 0 5vw;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+
+
+body {
+  font-family: 'Poppins', sans-serif;
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+
+@media (max-width: 400px) {
+  html {
+    overflow-x: hidden;
+  }
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+  color: #000;
+}
+
+input:focus, textarea:focus, select:focus{
+  outline: none !important;
+}
+
+.form-control:focus {
+  box-shadow: none;
+}
+
+/* scroll styles */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #dbdbdb;
+  border-radius: 5px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #acacac;
+}

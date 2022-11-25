@@ -1,0 +1,33 @@
+<nav>
+  <div class="home-links">
+    <div class="logo">
+      <img src="assets/images/Logomark.png" alt="logo" />
+      <h2 class="brand-name">ClickTik</h2>
+    </div>
+
+    <a class="home nav-item" [routerLink]="['/home']">home</a>
+  </div>
+
+  <div class="auth-nav">
+    <form class="search-form">
+      <input type="text" name="search" id="search-field" placeholder="Search" />
+      <button type="submit" class="sub-btn">
+        <img src="assets/icons/search.svg" alt="icon" />
+      </button>
+    </form>
+
+    <p class="cart-icon">
+      <img src="assets/icons/cart.svg" alt="icon" />
+    </p>
+
+    <p class="account nav-item" (click)="showAccountList = !showAccountList">
+      Account
+    </p>
+
+    <ul class="account-dropdown" [ngClass]="{ visible: showAccountList }">
+      <li (click)="onLogout()">Logout</li>
+    </ul>
+
+    <a class="login nav-item" [routerLink]="['/auth']">login</a>
+  </div>
+</nav>
