@@ -1,0 +1,22 @@
+.home-container {
+  padding: var(--conatiner-padding);
+  padding-top: 40px;
+}
+
+.page-title {
+  margin-bottom: 30px;
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 39px;
+}
+
+.thumbnail {
+  margin-bottom: 30px;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.container {
+  display: flex;
+  gap: 20px;
+}
