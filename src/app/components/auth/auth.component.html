@@ -8,9 +8,6 @@
 
     <p class="sub-title">Welcome back! Please enter your details.</p>
 
-    <div class="wrong-data" id="wrong_data" *ngIf="userNotExist">
-      Your email and/or password are incorrect
-    </div>
     <form class="login-form" (ngSubmit)="onLogin()" #loginForm="ngForm">
       <div class="input-item mail-field">
         <label for="email">Email</label>

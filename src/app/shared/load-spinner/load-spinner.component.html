@@ -1,0 +1,21 @@
+<div
+  class="disable-background"
+  [ngClass]="{ show: true }"
+  *ngIf="loading"
+  style="z-index: 9999"
+></div>
+
+<div class="lds-default" *ngIf="loading">
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+</div>

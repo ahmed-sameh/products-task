@@ -97,3 +97,23 @@ nav {
   visibility: visible;
   margin-top: 12px;
 }
+
+.cart-icon {
+  position: relative;
+}
+
+.products-counts {
+  position: absolute;
+  background: #56d9d9;
+  display: block;
+  right: -12px;
+  top: -12px;
+  width: 20px;
+  height: 20px;
+  font-size: 11px;
+  text-align: center;
+  color: #344054;
+  border-radius: 50%;
+  border: 3px solid #fff;
+  font-weight: 700;
+}

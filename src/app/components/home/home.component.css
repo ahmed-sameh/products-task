@@ -8,6 +8,7 @@
   font-size: 32px;
   font-weight: 700;
   line-height: 39px;
+  text-transform: capitalize;
 }
 
 .thumbnail {
@@ -18,5 +19,60 @@
 
 .container {
   display: flex;
+  flex-wrap: wrap;
   gap: 20px;
+}
+
+.products {
+  position: relative;
+  flex: 1;
+}
+
+.products-container {
+  display: flex;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.categories {
+  width: 250px;
+  height: fit-content;
+  border: 0.5px solid #424242;
+  border-radius: 8px;
+  padding: 12px;
+}
+
+.categories .title {
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 22px;
+  margin-bottom: 12px;
+}
+
+.cat-item {
+  margin-bottom: 15px;
+}
+
+.cat-check {
+  margin-right: 8px;
+  cursor: pointer;
+}
+
+.no-items {
+  font-weight: 900;
+  color: #cdcbcb;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 30px;
+}
+
+pagination-controls ::ng-deep ul.ngx-pagination {
+  margin: 60px auto;
+  width: fit-content;
+}
+
+pagination-controls ::ng-deep .ngx-pagination .current {
+  background: #56d9d9;
 }

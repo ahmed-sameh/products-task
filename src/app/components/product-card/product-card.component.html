@@ -1,33 +1,48 @@
 <div class="product">
+  <div class="discount-badge">- {{ productDetails.discountPercentage }}%</div>
   <div class="product-img">
-    <img src="assets/images/Logomark.png" alt="product image">
+    <img [src]="productDetails.thumbnail" [alt]="productDetails.title" />
   </div>
   <div class="product-info">
-    <h4 class="name">name</h4>
-    <p class="details">Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
+    <h4 class="name">{{ productDetails.title | cutLongString: 19 }}</h4>
+    <p class="details">
+      {{ productDetails.description | cutLongString: 50 }}
+    </p>
     <div class="price">
-      <p class="old-price">500</p>
-      <p class="new-price">400</p>
+      <p class="old">{{ productDetails.price | ToFloor }} USD</p>
+      <p class="new">
+        {{
+          productDetails.price -
+            productDetails.price / productDetails.discountPercentage | ToFloor
+        }}
+        USD
+      </p>
     </div>
     <p class="details-item">
-      <span class="title">title</span>
-      <span class="value">value</span>
+      <span class="title">Brand:</span>
+      <span class="value">{{ productDetails.brand | cutLongString: 20 }}</span>
     </p>
     <p class="details-item">
-      <span class="title">title</span>
-      <span class="value">value</span>
+      <span class="title">Category:</span>
+      <span class="value">{{ productDetails.category }}</span>
     </p>
     <p class="details-item">
-      <span class="title">title</span>
-      <span class="value">value</span>
+      <span class="title">In stock:</span>
+      <span class="value">{{ productDetails.stock }}</span>
     </p>
 
     <div class="rate">
-      <img src="assets/icons/star.png" alt="icon">
-      <span class="value">5</span>
+      <img src="assets/icons/star.png" alt="icon" />
+      <span class="value">{{ productDetails.rating }}</span>
       <span class="users">(11)</span>
     </div>
 
-    <button class="add-btn">Add To Cart</button>
+    <button
+      class="add-btn"
+      type="button"
+      (click)="addToCart(productDetails.id)"
+    >
+      Add To Cart
+    </button>
   </div>
 </div>

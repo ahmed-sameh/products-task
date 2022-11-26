@@ -1,0 +1,26 @@
+<div
+  class="disable-background"
+  (click)="closeAlert()"
+  [ngClass]="{ show: showAlert }"
+></div>
+
+<div class="alert-block" *ngIf="showAlert">
+  <button type="button" class="btn-close" (click)="closeAlert()">X</button>
+  <img
+    src="assets/icons/success-alert.svg"
+    class="alert-img"
+    alt="alert"
+    *ngIf="!isError"
+  />
+  <img
+    src="assets/icons/error-alert.svg"
+    class="alert-img"
+    alt="alert"
+    *ngIf="isError"
+  />
+  <h2 class="alert-header success" *ngIf="!isError">Successful Operation</h2>
+  <h2 class="alert-header error" *ngIf="isError">Error Occurred</h2>
+  <p class="alert-message">
+    {{ alertMessage }}
+  </p>
+</div>

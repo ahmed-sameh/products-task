@@ -3,13 +3,17 @@ import { Router } from '@angular/router';
 import { BehaviorSubject } from 'rxjs';
 import { User } from '../models/user.model';
 import { ApiService } from './http.service';
+import { LocalStorageService } from './local-storage.service';
 
 @Injectable({ providedIn: 'root' })
 export class AuthService {
   userAuthenticated = new BehaviorSubject<User | null>(null);
-  userInLogMood = false;
 
-  constructor(private router: Router, private httpService: ApiService) {}
+  constructor(
+    private router: Router,
+    private httpService: ApiService,
+    private localStorageService: LocalStorageService
+  ) {}
 
   /*
     Login function:
@@ -25,33 +29,36 @@ export class AuthService {
       password,
     };
     this.httpService.post('auth/login', userData).subscribe({
-      next: (res) => console.log(res),
+      next: (res) => {
+        this.userAuthenticated.next(res);
+        this.localStorageService.saveUser(res);
+        this.router.navigate(['/home']);
+      },
     });
-
-    let user = new User(username, password);
-    this.userAuthenticated.next(user);
-    localStorage.setItem('userData', JSON.stringify(user));
-    this.router.navigate(['/welcome']);
-    this.userInLogMood = true;
   }
 
   // funct responsible about auto login when app is intialized by checking if there is user data in local storage
   autoLogin() {
-    const userData: { email: string; password: string } = JSON.parse(
-      localStorage?.getItem('userData')!
-    );
-    if (!userData) {
-      return;
+    if (this.localStorageService.getUser()) {
+      this.router.navigate(['/home']);
+    } else {
+      this.router.navigate(['/auth']);
     }
-
-    const loadedUser = new User(userData.email, userData.password);
-    this.userAuthenticated.next(loadedUser);
-    this.userInLogMood = true;
   }
 
   logout() {
     this.userAuthenticated.next(null);
-    this.router.navigate(['/login']);
-    localStorage.removeItem('userData');
+    this.router.navigate(['/auth']);
+    this.localStorageService.destroyUser();
+  }
+
+  isUserAuthenticated() {
+    return this.localStorageService.getUser() ? true : false;
+  }
+
+  getToken() {
+    return this.localStorageService.getUser()
+      ? this.localStorageService.getUser().token
+      : '';
   }
 }

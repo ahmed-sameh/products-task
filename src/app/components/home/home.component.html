@@ -1,27 +1,49 @@
 <div class="home-container">
-  <h2 class="page-title">Page Title</h2>
-  <p class="thumbnail">link/link/link</p>
+  <h2 class="page-title">{{ pageTitle }}</h2>
+  <p class="thumbnail">
+    <a>Home</a>
+    <a> / Products</a>
+    <a *ngIf="catgeroyName"> / {{ catgeroyName }}</a>
+  </p>
 
   <div class="container">
-
     <div class="categories">
-      <ul class="cat-list">
-        <li class="cat-item">item</li>
-        <li class="cat-item">item</li>
-        <li class="cat-item">item</li>
-        <li class="cat-item">item</li>
-        <li class="cat-item">item</li>
-      </ul>
+      <h3 class="title">Categories</h3>
+
+      <form
+        [formGroup]="catgeoryForm"
+        class="cat-list"
+        (change)="onFilterChange()"
+      >
+        <div *ngFor="let cat of categories" class="cat-item">
+          <input
+            type="radio"
+            formControlName="category"
+            [value]="cat"
+            class="cat-check"
+          />{{ cat }}
+        </div>
+      </form>
     </div>
 
     <div class="products">
-      <app-product-card></app-product-card>
-      <app-product-card></app-product-card>
-      <app-product-card></app-product-card>
-      <app-product-card></app-product-card>
-      <app-product-card></app-product-card>
-      <app-product-card></app-product-card>
-      <app-product-card></app-product-card>
+      <div class="products-container">
+        <h3 class="no-items" *ngIf="products.length == 0">
+          No Items Available
+        </h3>
+
+        <app-product-card
+          *ngFor="
+            let product of products
+              | paginate: { itemsPerPage: 10, currentPage: p }
+          "
+          [productDetails]="product"
+        ></app-product-card>
+      </div>
+      <pagination-controls
+        *ngIf="products.length != 0"
+        (pageChange)="p = $event"
+      ></pagination-controls>
     </div>
   </div>
 </div>
